@@ -1,4 +1,4 @@
-# 3D-KAR reproducible revision workspace
+# revision workspace
 
 This is a clean local extraction of the code needed for the next 3D-KAR
 experiments. It intentionally excludes abandoned scripts, partial outputs,
