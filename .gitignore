@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.idea/
+.vscode/
+
+# Benchmark files are kept locally. Do not publish them before checking the
+# original dataset redistribution terms.
+data/raw/*
+!data/raw/.gitkeep
+
+# Generated experiment artifacts.
+outputs/*
+!outputs/.gitkeep
+
+# Model weights and caches.
+checkpoints/
+modelscope_cache/
+*.safetensors
+*.pt
+*.pth

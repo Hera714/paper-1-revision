@@ -1,0 +1,20 @@
+{
+  "line0_pure_vlm": [
+    "Scale Consistency",
+    "Accessibility Constraints"
+  ],
+  "line1_base": [
+    "Stability Prediction",
+    "Viewpoint Visibility"
+  ],
+  "line2_orientation": [
+    "Gravity Effects",
+    "Facing Direction",
+    "Tool Handedness",
+    "Proximity Gradients"
+  ],
+  "line3_bbox": [
+    "Alignment Patterns",
+    "Relative Size Comparison"
+  ]
+}

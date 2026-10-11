@@ -1,0 +1,14 @@
+{
+  "dataset": "SpatialLab-MCQ local evaluation copy",
+  "records": 1400,
+  "unique_images": 1400,
+  "json_sha256": "278608e48df05b81f73bf9f6bce3863fe2c466251a05a247cb2af7cbfa458b42",
+  "category_counts": {
+    "3D Geometry": 238,
+    "Depth & Occlusion": 259,
+    "Orientation": 202,
+    "Relative Positioning": 212,
+    "Size & Scale": 252,
+    "Spatial Navigation": 237
+  }
+}

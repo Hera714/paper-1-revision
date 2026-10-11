@@ -1,0 +1,18 @@
+run_name: control_depth_no_backprojection_seed42
+model_path: AIDC-AI/Ovis2.5-9B
+data_path: data/raw/spatiallab_mcq.json
+image_dir: /root/autodl-fs/img
+output_root: outputs
+knowledge_dir: knowledge
+route_map_path: knowledge/route_map.json
+
+router_mode: auto
+router_confidence_threshold: 0.55
+seed: 42
+
+use_depth: true
+use_backprojection: false
+use_fine_grained_features: false
+use_symbolic_relations: false
+use_knowledge: false
+use_scene_graph_context: true

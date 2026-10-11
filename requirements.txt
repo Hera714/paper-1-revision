@@ -1,0 +1,12 @@
+torch==2.8.0
+torchvision==0.23.0
+modelscope==1.35.1
+transformers==4.51.3
+accelerate==1.13.0
+flash-attn==2.8.3
+# Install the server checkout separately:
+# pip install -e /root/autodl-tmp/ml-depth-pro
+numpy==2.2.6
+pillow==11.3.0
+pyyaml==6.0.3
+tqdm==4.67.3
