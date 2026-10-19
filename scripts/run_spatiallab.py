@@ -107,8 +107,9 @@ def main():
             config.resolve_project_path(PROJECT_ROOT, config.knowledge_dir),
             config.resolve_project_path(PROJECT_ROOT, config.route_map_path),
         )
-        if knowledge.rule_count != 74:
-            raise RuntimeError(f"Expected 74 knowledge rules, found {knowledge.rule_count}")
+        expected_rules = int(config.extra.get("expected_knowledge_rule_count", 74))
+        if knowledge.rule_count != expected_rules:
+            raise RuntimeError(f"Expected {expected_rules} knowledge rules, found {knowledge.rule_count}")
 
     pipeline = ThreeDKARPipeline(
         perception=perception,

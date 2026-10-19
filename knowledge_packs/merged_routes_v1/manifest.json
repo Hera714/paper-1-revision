@@ -1,0 +1,1688 @@
+{
+  "version": "merged_routes_v1",
+  "policy": "original mapped route rules + corresponding fold rules; retain exact text; deduplicate NFKC/whitespace only within route; no sample-ID selection",
+  "counts": {
+    "line0_pure_vlm": {
+      "original_route_rules": 18,
+      "fold_rules": {
+        "line0_error_fold1_v1.json": 18,
+        "line0_error_fold2_v1.json": 18
+      },
+      "before_deduplication": 54,
+      "removed_duplicates": 0,
+      "merged_rules": 54
+    },
+    "line1_base": {
+      "original_route_rules": 19,
+      "fold_rules": {
+        "line1_error_fold1_v1.json": 19,
+        "line1_error_fold3_v1.json": 18
+      },
+      "before_deduplication": 56,
+      "removed_duplicates": 0,
+      "merged_rules": 56
+    },
+    "line2_orientation": {
+      "original_route_rules": 24,
+      "fold_rules": {
+        "line2_error_fold2_v1.json": 21,
+        "line2_error_fold3_v1.json": 23
+      },
+      "before_deduplication": 68,
+      "removed_duplicates": 0,
+      "merged_rules": 68
+    },
+    "line3_bbox": {
+      "original_route_rules": 13,
+      "fold_rules": {
+        "line3_error_fold2_v1.json": 25
+      },
+      "before_deduplication": 38,
+      "removed_duplicates": 0,
+      "merged_rules": 38
+    }
+  },
+  "source_sha256": {
+    "knowledge_packs/line0_error_fold1_v1.json": "564f91396602aa2c779ba8e8b4f5f43fb624626014fead729166ec639ed038df",
+    "knowledge_packs/line0_error_fold2_v1.json": "6c4034b6f545a7287890e440bfcad1f84dec8f0a5ce338c7698c958d90c74c67",
+    "knowledge_packs/line1_error_fold1_v1.json": "672b9bb74b46603deeb40c87c672e4f2d32c11a66bf1a657d61c02d1f80a3ea9",
+    "knowledge_packs/line1_error_fold3_v1.json": "6c0ad8f26034da014f3ebccfb4a7d2d5df0d5963053f72ae346d9dbb074f3059",
+    "knowledge_packs/line2_error_fold2_v1.json": "a27cdcb2c3029d7cec52b917e1d5d07f5efb2429a7d026c56c0b77aaa992286a",
+    "knowledge_packs/line2_error_fold3_v1.json": "b4e4110ffaeabda9d1a0199ac219a04f3487e61741951566e12aa4bd5580111d",
+    "knowledge_packs/line3_error_fold2_v1.json": "02d15ba5422f43f0301ca5259d14d9358c4e9578d5cb96a64b1c9a7c633e79ef",
+    "knowledge/3D_Geometry.json": "01b90b160522a40b9cd0733c849ba04f1a6a8943c0afce3a2045018515de6d1a",
+    "knowledge/Orientation.json": "0f09d45b4af5af26265cedd64a9d5b4133bff3293c9500893d3e0935f3e0508f",
+    "knowledge/Relative_Positioning.json": "f03430c9e7c70922cc1979e38133898c888d7cd39b9906582caee4c53aee4766",
+    "knowledge/Size__Scale.json": "7cea0e586e9a636e8aad0fc23faf9ffcf02dc55f16874866c96cc2e941729a61",
+    "knowledge/Spatial_Navigation.json": "ad2fe666e51f30b2f78fa5334ae9c5150edffe558e977da6dd390a01bc84fe1e",
+    "knowledge/route_map.json": "85857a48edec8b964ab2898020a3bb569abdfc5221c831bf8bd6042e032edd81"
+  },
+  "fold_route_audit": {
+    "line0_error_fold1_v1.json": {
+      "rows_checked": 48,
+      "route": "line0_pure_vlm",
+      "result_sha256": "24579410ee0e95ada09d6f4a7fbac56b076fbb489f5609478dce1a431a56fa02"
+    },
+    "line0_error_fold2_v1.json": {
+      "rows_checked": 48,
+      "route": "line0_pure_vlm",
+      "result_sha256": "42261daf11d70e1ab9c1b86832ba922cd286ab05cbcc03e4605a3c600f3c4e2c"
+    },
+    "line1_error_fold1_v1.json": {
+      "rows_checked": 43,
+      "route": "line1_base",
+      "result_sha256": "eec83cf3750a862e039789672c885b3c9e74de12f2fd618c967425872926bd14"
+    },
+    "line1_error_fold3_v1.json": {
+      "rows_checked": 43,
+      "route": "line1_base",
+      "result_sha256": "c18db74136ae6d3c00defe9e8c09adeb301eef01879a1ef9e5145ddfdde26810"
+    },
+    "line2_error_fold2_v1.json": {
+      "rows_checked": 46,
+      "route": "line2_orientation",
+      "result_sha256": "f5dac669041666315934d6feaf36beafe453459e9ccbd76c007e30c6b4567a74"
+    },
+    "line2_error_fold3_v1.json": {
+      "rows_checked": 46,
+      "route": "line2_orientation",
+      "result_sha256": "b63cda11a7e10e0a177ae6c370200e0daa654da8854dc863eba125ad194e9fe0"
+    },
+    "line3_error_fold2_v1.json": {
+      "rows_checked": 49,
+      "route": "line3_bbox",
+      "result_sha256": "0e753a5f86758800f77c1bc5d5fa643aaac3f2d790e46f3c563440846115b12c"
+    }
+  },
+  "rule_sources": {
+    "line0_pure_vlm": {
+      "1": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Scale Consistency"
+        }
+      ],
+      "2": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Scale Consistency"
+        }
+      ],
+      "3": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Scale Consistency"
+        }
+      ],
+      "4": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Scale Consistency"
+        }
+      ],
+      "5": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Scale Consistency"
+        }
+      ],
+      "6": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Scale Consistency"
+        }
+      ],
+      "7": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Scale Consistency"
+        }
+      ],
+      "8": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Scale Consistency"
+        }
+      ],
+      "9": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Accessibility Constraints"
+        }
+      ],
+      "10": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Accessibility Constraints"
+        }
+      ],
+      "11": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Accessibility Constraints"
+        }
+      ],
+      "12": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Accessibility Constraints"
+        }
+      ],
+      "13": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Accessibility Constraints"
+        }
+      ],
+      "14": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Accessibility Constraints"
+        }
+      ],
+      "15": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Accessibility Constraints"
+        }
+      ],
+      "16": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Accessibility Constraints"
+        }
+      ],
+      "17": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Accessibility Constraints"
+        }
+      ],
+      "18": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Accessibility Constraints"
+        }
+      ],
+      "19": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold1_v1.json",
+          "version": "line0_error_fold1_v1",
+          "section": "Bind the question to the visible target"
+        }
+      ],
+      "20": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold1_v1.json",
+          "version": "line0_error_fold1_v1",
+          "section": "Bind the question to the visible target"
+        }
+      ],
+      "21": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold1_v1.json",
+          "version": "line0_error_fold1_v1",
+          "section": "Bind the question to the visible target"
+        }
+      ],
+      "22": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold1_v1.json",
+          "version": "line0_error_fold1_v1",
+          "section": "Bind the question to the visible target"
+        }
+      ],
+      "23": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold1_v1.json",
+          "version": "line0_error_fold1_v1",
+          "section": "Support, removal and physical consequences"
+        }
+      ],
+      "24": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold1_v1.json",
+          "version": "line0_error_fold1_v1",
+          "section": "Support, removal and physical consequences"
+        }
+      ],
+      "25": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold1_v1.json",
+          "version": "line0_error_fold1_v1",
+          "section": "Support, removal and physical consequences"
+        }
+      ],
+      "26": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold1_v1.json",
+          "version": "line0_error_fold1_v1",
+          "section": "Support, removal and physical consequences"
+        }
+      ],
+      "27": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold1_v1.json",
+          "version": "line0_error_fold1_v1",
+          "section": "Occlusion, reflection and visible evidence"
+        }
+      ],
+      "28": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold1_v1.json",
+          "version": "line0_error_fold1_v1",
+          "section": "Occlusion, reflection and visible evidence"
+        }
+      ],
+      "29": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold1_v1.json",
+          "version": "line0_error_fold1_v1",
+          "section": "Occlusion, reflection and visible evidence"
+        }
+      ],
+      "30": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold1_v1.json",
+          "version": "line0_error_fold1_v1",
+          "section": "Occlusion, reflection and visible evidence"
+        }
+      ],
+      "31": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold1_v1.json",
+          "version": "line0_error_fold1_v1",
+          "section": "Occlusion, reflection and visible evidence"
+        }
+      ],
+      "32": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold1_v1.json",
+          "version": "line0_error_fold1_v1",
+          "section": "Counting and following a route"
+        }
+      ],
+      "33": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold1_v1.json",
+          "version": "line0_error_fold1_v1",
+          "section": "Counting and following a route"
+        }
+      ],
+      "34": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold1_v1.json",
+          "version": "line0_error_fold1_v1",
+          "section": "Counting and following a route"
+        }
+      ],
+      "35": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold1_v1.json",
+          "version": "line0_error_fold1_v1",
+          "section": "Counting and following a route"
+        }
+      ],
+      "36": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold1_v1.json",
+          "version": "line0_error_fold1_v1",
+          "section": "Counting and following a route"
+        }
+      ],
+      "37": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold2_v1.json",
+          "version": "line0_error_fold2_v1",
+          "section": "Resolve the requested object, relation and change"
+        }
+      ],
+      "38": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold2_v1.json",
+          "version": "line0_error_fold2_v1",
+          "section": "Resolve the requested object, relation and change"
+        }
+      ],
+      "39": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold2_v1.json",
+          "version": "line0_error_fold2_v1",
+          "section": "Resolve the requested object, relation and change"
+        }
+      ],
+      "40": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold2_v1.json",
+          "version": "line0_error_fold2_v1",
+          "section": "Resolve the requested object, relation and change"
+        }
+      ],
+      "41": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold2_v1.json",
+          "version": "line0_error_fold2_v1",
+          "section": "Routes and hypothetical views"
+        }
+      ],
+      "42": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold2_v1.json",
+          "version": "line0_error_fold2_v1",
+          "section": "Routes and hypothetical views"
+        }
+      ],
+      "43": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold2_v1.json",
+          "version": "line0_error_fold2_v1",
+          "section": "Routes and hypothetical views"
+        }
+      ],
+      "44": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold2_v1.json",
+          "version": "line0_error_fold2_v1",
+          "section": "Routes and hypothetical views"
+        }
+      ],
+      "45": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold2_v1.json",
+          "version": "line0_error_fold2_v1",
+          "section": "Routes and hypothetical views"
+        }
+      ],
+      "46": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold2_v1.json",
+          "version": "line0_error_fold2_v1",
+          "section": "Forces, stability and relative dimensions"
+        }
+      ],
+      "47": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold2_v1.json",
+          "version": "line0_error_fold2_v1",
+          "section": "Forces, stability and relative dimensions"
+        }
+      ],
+      "48": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold2_v1.json",
+          "version": "line0_error_fold2_v1",
+          "section": "Forces, stability and relative dimensions"
+        }
+      ],
+      "49": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold2_v1.json",
+          "version": "line0_error_fold2_v1",
+          "section": "Forces, stability and relative dimensions"
+        }
+      ],
+      "50": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold2_v1.json",
+          "version": "line0_error_fold2_v1",
+          "section": "Forces, stability and relative dimensions"
+        }
+      ],
+      "51": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold2_v1.json",
+          "version": "line0_error_fold2_v1",
+          "section": "Optics, task precision and uncertainty"
+        }
+      ],
+      "52": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold2_v1.json",
+          "version": "line0_error_fold2_v1",
+          "section": "Optics, task precision and uncertainty"
+        }
+      ],
+      "53": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold2_v1.json",
+          "version": "line0_error_fold2_v1",
+          "section": "Optics, task precision and uncertainty"
+        }
+      ],
+      "54": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line0_error_fold2_v1.json",
+          "version": "line0_error_fold2_v1",
+          "section": "Optics, task precision and uncertainty"
+        }
+      ]
+    },
+    "line1_base": {
+      "1": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Stability Prediction"
+        }
+      ],
+      "2": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Stability Prediction"
+        }
+      ],
+      "3": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Stability Prediction"
+        }
+      ],
+      "4": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Stability Prediction"
+        }
+      ],
+      "5": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Stability Prediction"
+        }
+      ],
+      "6": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Stability Prediction"
+        }
+      ],
+      "7": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Stability Prediction"
+        }
+      ],
+      "8": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Stability Prediction"
+        }
+      ],
+      "9": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Stability Prediction"
+        }
+      ],
+      "10": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Stability Prediction"
+        }
+      ],
+      "11": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Stability Prediction"
+        }
+      ],
+      "12": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Viewpoint Visibility"
+        }
+      ],
+      "13": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Viewpoint Visibility"
+        }
+      ],
+      "14": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Viewpoint Visibility"
+        }
+      ],
+      "15": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Viewpoint Visibility"
+        }
+      ],
+      "16": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Viewpoint Visibility"
+        }
+      ],
+      "17": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Viewpoint Visibility"
+        }
+      ],
+      "18": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Viewpoint Visibility"
+        }
+      ],
+      "19": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Viewpoint Visibility"
+        }
+      ],
+      "20": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold1_v1.json",
+          "version": "line1_error_fold1_v1",
+          "section": "Interpret auxiliary evidence without treating labels as ground truth"
+        }
+      ],
+      "21": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold1_v1.json",
+          "version": "line1_error_fold1_v1",
+          "section": "Interpret auxiliary evidence without treating labels as ground truth"
+        }
+      ],
+      "22": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold1_v1.json",
+          "version": "line1_error_fold1_v1",
+          "section": "Interpret auxiliary evidence without treating labels as ground truth"
+        }
+      ],
+      "23": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold1_v1.json",
+          "version": "line1_error_fold1_v1",
+          "section": "Interpret auxiliary evidence without treating labels as ground truth"
+        }
+      ],
+      "24": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold1_v1.json",
+          "version": "line1_error_fold1_v1",
+          "section": "Choose the correct coordinate frame and distance"
+        }
+      ],
+      "25": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold1_v1.json",
+          "version": "line1_error_fold1_v1",
+          "section": "Choose the correct coordinate frame and distance"
+        }
+      ],
+      "26": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold1_v1.json",
+          "version": "line1_error_fold1_v1",
+          "section": "Choose the correct coordinate frame and distance"
+        }
+      ],
+      "27": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold1_v1.json",
+          "version": "line1_error_fold1_v1",
+          "section": "Choose the correct coordinate frame and distance"
+        }
+      ],
+      "28": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold1_v1.json",
+          "version": "line1_error_fold1_v1",
+          "section": "Choose the correct coordinate frame and distance"
+        }
+      ],
+      "29": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold1_v1.json",
+          "version": "line1_error_fold1_v1",
+          "section": "Separate depth, occlusion and object-relative relations"
+        }
+      ],
+      "30": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold1_v1.json",
+          "version": "line1_error_fold1_v1",
+          "section": "Separate depth, occlusion and object-relative relations"
+        }
+      ],
+      "31": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold1_v1.json",
+          "version": "line1_error_fold1_v1",
+          "section": "Separate depth, occlusion and object-relative relations"
+        }
+      ],
+      "32": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold1_v1.json",
+          "version": "line1_error_fold1_v1",
+          "section": "Separate depth, occlusion and object-relative relations"
+        }
+      ],
+      "33": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold1_v1.json",
+          "version": "line1_error_fold1_v1",
+          "section": "Separate depth, occlusion and object-relative relations"
+        }
+      ],
+      "34": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold1_v1.json",
+          "version": "line1_error_fold1_v1",
+          "section": "Bind candidates, count instances and assess access"
+        }
+      ],
+      "35": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold1_v1.json",
+          "version": "line1_error_fold1_v1",
+          "section": "Bind candidates, count instances and assess access"
+        }
+      ],
+      "36": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold1_v1.json",
+          "version": "line1_error_fold1_v1",
+          "section": "Bind candidates, count instances and assess access"
+        }
+      ],
+      "37": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold1_v1.json",
+          "version": "line1_error_fold1_v1",
+          "section": "Bind candidates, count instances and assess access"
+        }
+      ],
+      "38": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold1_v1.json",
+          "version": "line1_error_fold1_v1",
+          "section": "Bind candidates, count instances and assess access"
+        }
+      ],
+      "39": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold3_v1.json",
+          "version": "line1_error_fold3_v1",
+          "section": "Use the requested reference and the correct spatial frame"
+        }
+      ],
+      "40": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold3_v1.json",
+          "version": "line1_error_fold3_v1",
+          "section": "Use the requested reference and the correct spatial frame"
+        }
+      ],
+      "41": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold3_v1.json",
+          "version": "line1_error_fold3_v1",
+          "section": "Use the requested reference and the correct spatial frame"
+        }
+      ],
+      "42": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold3_v1.json",
+          "version": "line1_error_fold3_v1",
+          "section": "Use the requested reference and the correct spatial frame"
+        }
+      ],
+      "43": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold3_v1.json",
+          "version": "line1_error_fold3_v1",
+          "section": "Distinguish overlap, support, alignment and orientation"
+        }
+      ],
+      "44": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold3_v1.json",
+          "version": "line1_error_fold3_v1",
+          "section": "Distinguish overlap, support, alignment and orientation"
+        }
+      ],
+      "45": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold3_v1.json",
+          "version": "line1_error_fold3_v1",
+          "section": "Distinguish overlap, support, alignment and orientation"
+        }
+      ],
+      "46": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold3_v1.json",
+          "version": "line1_error_fold3_v1",
+          "section": "Distinguish overlap, support, alignment and orientation"
+        }
+      ],
+      "47": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold3_v1.json",
+          "version": "line1_error_fold3_v1",
+          "section": "Distinguish overlap, support, alignment and orientation"
+        }
+      ],
+      "48": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold3_v1.json",
+          "version": "line1_error_fold3_v1",
+          "section": "Follow actual passage, contact and available space"
+        }
+      ],
+      "49": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold3_v1.json",
+          "version": "line1_error_fold3_v1",
+          "section": "Follow actual passage, contact and available space"
+        }
+      ],
+      "50": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold3_v1.json",
+          "version": "line1_error_fold3_v1",
+          "section": "Follow actual passage, contact and available space"
+        }
+      ],
+      "51": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold3_v1.json",
+          "version": "line1_error_fold3_v1",
+          "section": "Follow actual passage, contact and available space"
+        }
+      ],
+      "52": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold3_v1.json",
+          "version": "line1_error_fold3_v1",
+          "section": "Follow actual passage, contact and available space"
+        }
+      ],
+      "53": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold3_v1.json",
+          "version": "line1_error_fold3_v1",
+          "section": "Separate observation, reflection and hypothetical change"
+        }
+      ],
+      "54": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold3_v1.json",
+          "version": "line1_error_fold3_v1",
+          "section": "Separate observation, reflection and hypothetical change"
+        }
+      ],
+      "55": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold3_v1.json",
+          "version": "line1_error_fold3_v1",
+          "section": "Separate observation, reflection and hypothetical change"
+        }
+      ],
+      "56": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line1_error_fold3_v1.json",
+          "version": "line1_error_fold3_v1",
+          "section": "Separate observation, reflection and hypothetical change"
+        }
+      ]
+    },
+    "line2_orientation": {
+      "1": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Gravity Effects"
+        }
+      ],
+      "2": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Gravity Effects"
+        }
+      ],
+      "3": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Gravity Effects"
+        }
+      ],
+      "4": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Gravity Effects"
+        }
+      ],
+      "5": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Gravity Effects"
+        }
+      ],
+      "6": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Gravity Effects"
+        }
+      ],
+      "7": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Gravity Effects"
+        }
+      ],
+      "8": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Gravity Effects"
+        }
+      ],
+      "9": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Gravity Effects"
+        }
+      ],
+      "10": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Gravity Effects"
+        }
+      ],
+      "11": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Gravity Effects"
+        }
+      ],
+      "12": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Gravity Effects"
+        }
+      ],
+      "13": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Gravity Effects"
+        }
+      ],
+      "14": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Facing Direction"
+        }
+      ],
+      "15": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Facing Direction"
+        }
+      ],
+      "16": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Facing Direction"
+        }
+      ],
+      "17": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Tool Handedness"
+        }
+      ],
+      "18": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Tool Handedness"
+        }
+      ],
+      "19": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Tool Handedness"
+        }
+      ],
+      "20": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Proximity Gradients"
+        }
+      ],
+      "21": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Proximity Gradients"
+        }
+      ],
+      "22": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Proximity Gradients"
+        }
+      ],
+      "23": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Proximity Gradients"
+        }
+      ],
+      "24": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Proximity Gradients"
+        }
+      ],
+      "25": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Calibrate headings from actual directional parts"
+        }
+      ],
+      "26": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Calibrate headings from actual directional parts"
+        }
+      ],
+      "27": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Calibrate headings from actual directional parts"
+        }
+      ],
+      "28": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Calibrate headings from actual directional parts"
+        }
+      ],
+      "29": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Calibrate headings from actual directional parts"
+        }
+      ],
+      "30": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Determine the vertex, rays and requested angular opening"
+        }
+      ],
+      "31": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Determine the vertex, rays and requested angular opening"
+        }
+      ],
+      "32": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Determine the vertex, rays and requested angular opening"
+        }
+      ],
+      "33": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Determine the vertex, rays and requested angular opening"
+        }
+      ],
+      "34": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Determine the vertex, rays and requested angular opening"
+        }
+      ],
+      "35": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Determine the vertex, rays and requested angular opening"
+        }
+      ],
+      "36": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Use the named observer, requested view and actual contact"
+        }
+      ],
+      "37": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Use the named observer, requested view and actual contact"
+        }
+      ],
+      "38": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Use the named observer, requested view and actual contact"
+        }
+      ],
+      "39": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Use the named observer, requested view and actual contact"
+        }
+      ],
+      "40": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Use the named observer, requested view and actual contact"
+        }
+      ],
+      "41": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Use the named observer, requested view and actual contact"
+        }
+      ],
+      "42": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Separate optical image size from illumination and physical size"
+        }
+      ],
+      "43": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Separate optical image size from illumination and physical size"
+        }
+      ],
+      "44": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Separate optical image size from illumination and physical size"
+        }
+      ],
+      "45": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold2_v1.json",
+          "version": "line2_error_fold2_v1",
+          "section": "Separate optical image size from illumination and physical size"
+        }
+      ],
+      "46": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Bind physical heading and use explicit directional evidence"
+        }
+      ],
+      "47": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Bind physical heading and use explicit directional evidence"
+        }
+      ],
+      "48": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Bind physical heading and use explicit directional evidence"
+        }
+      ],
+      "49": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Bind physical heading and use explicit directional evidence"
+        }
+      ],
+      "50": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Bind physical heading and use explicit directional evidence"
+        }
+      ],
+      "51": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Bind physical heading and use explicit directional evidence"
+        }
+      ],
+      "52": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Identify the angular quantity before estimating it"
+        }
+      ],
+      "53": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Identify the angular quantity before estimating it"
+        }
+      ],
+      "54": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Identify the angular quantity before estimating it"
+        }
+      ],
+      "55": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Identify the angular quantity before estimating it"
+        }
+      ],
+      "56": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Identify the angular quantity before estimating it"
+        }
+      ],
+      "57": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Resolve the observer and execute the requested operation"
+        }
+      ],
+      "58": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Resolve the observer and execute the requested operation"
+        }
+      ],
+      "59": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Resolve the observer and execute the requested operation"
+        }
+      ],
+      "60": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Resolve the observer and execute the requested operation"
+        }
+      ],
+      "61": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Resolve the observer and execute the requested operation"
+        }
+      ],
+      "62": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Resolve the observer and execute the requested operation"
+        }
+      ],
+      "63": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Apply conditional support, optical and distance rules"
+        }
+      ],
+      "64": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Apply conditional support, optical and distance rules"
+        }
+      ],
+      "65": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Apply conditional support, optical and distance rules"
+        }
+      ],
+      "66": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Apply conditional support, optical and distance rules"
+        }
+      ],
+      "67": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Apply conditional support, optical and distance rules"
+        }
+      ],
+      "68": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line2_error_fold3_v1.json",
+          "version": "line2_error_fold3_v1",
+          "section": "Apply conditional support, optical and distance rules"
+        }
+      ]
+    },
+    "line3_bbox": {
+      "1": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Alignment Patterns"
+        }
+      ],
+      "2": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Alignment Patterns"
+        }
+      ],
+      "3": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Alignment Patterns"
+        }
+      ],
+      "4": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Relative Size Comparison"
+        }
+      ],
+      "5": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Relative Size Comparison"
+        }
+      ],
+      "6": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Relative Size Comparison"
+        }
+      ],
+      "7": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Relative Size Comparison"
+        }
+      ],
+      "8": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Relative Size Comparison"
+        }
+      ],
+      "9": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Relative Size Comparison"
+        }
+      ],
+      "10": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Relative Size Comparison"
+        }
+      ],
+      "11": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Relative Size Comparison"
+        }
+      ],
+      "12": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Relative Size Comparison"
+        }
+      ],
+      "13": [
+        {
+          "kind": "original_route_rule",
+          "tag": "Relative Size Comparison"
+        }
+      ],
+      "14": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "1. Match the requested quantity and object part"
+        }
+      ],
+      "15": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "1. Match the requested quantity and object part"
+        }
+      ],
+      "16": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "1. Match the requested quantity and object part"
+        }
+      ],
+      "17": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "2. Fit means usable interior and passage clearance"
+        }
+      ],
+      "18": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "2. Fit means usable interior and passage clearance"
+        }
+      ],
+      "19": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "2. Fit means usable interior and passage clearance"
+        }
+      ],
+      "20": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "2. Fit means usable interior and passage clearance"
+        }
+      ],
+      "21": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "3. Orientation, packing and body fit"
+        }
+      ],
+      "22": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "3. Orientation, packing and body fit"
+        }
+      ],
+      "23": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "3. Orientation, packing and body fit"
+        }
+      ],
+      "24": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "3. Orientation, packing and body fit"
+        }
+      ],
+      "25": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "4. Perspective and derived geometry are conditional"
+        }
+      ],
+      "26": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "4. Perspective and derived geometry are conditional"
+        }
+      ],
+      "27": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "4. Perspective and derived geometry are conditional"
+        }
+      ],
+      "28": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "5. Arrangement, counting and relative reference"
+        }
+      ],
+      "29": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "5. Arrangement, counting and relative reference"
+        }
+      ],
+      "30": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "5. Arrangement, counting and relative reference"
+        }
+      ],
+      "31": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "6. Volume, material and functional capacity"
+        }
+      ],
+      "32": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "6. Volume, material and functional capacity"
+        }
+      ],
+      "33": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "6. Volume, material and functional capacity"
+        }
+      ],
+      "34": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "7. Apparent size, refraction and shadows"
+        }
+      ],
+      "35": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "7. Apparent size, refraction and shadows"
+        }
+      ],
+      "36": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "7. Apparent size, refraction and shadows"
+        }
+      ],
+      "37": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "8. Select the answer without inventing precision"
+        }
+      ],
+      "38": [
+        {
+          "kind": "fold_rule",
+          "file": "knowledge_packs/line3_error_fold2_v1.json",
+          "version": "line3_error_fold2_v1",
+          "section": "8. Select the answer without inventing precision"
+        }
+      ]
+    }
+  },
+  "evaluation_status": "not evaluated; does not reproduce merged-error-fold accuracy"
+}
