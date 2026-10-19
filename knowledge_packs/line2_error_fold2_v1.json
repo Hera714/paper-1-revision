@@ -1,0 +1,47 @@
+{
+  "version": "line2_error_fold2_v1",
+  "route": "line2_orientation",
+  "sections": [
+    {
+      "title": "Calibrate headings from actual directional parts",
+      "rules": [
+        "Separate where an object is located, where its front or arrow points, and the direction its face or surface normal points. A person to another person's right is not necessarily moving right. A sign's arrow direction differs from the direction its readable face looks toward; a traffic light faces along its lens axis, not along its position beside a sign.",
+        "Bind the named reference instance and its supplied compass heading first. Determine the target's heading relative to that reference using arrow tips, vehicle front versus rear, face and gaze, and ground-plane orientation. Do not assume picture up is north. Same direction preserves the reference heading; opposite direction reverses it. For genuine ground-plane quarter-turns, clockwise order is north, east, south, west. Facing north gives right east and left west; facing east gives right south and left north.",
+        "For two arrows known to lie in a common plane, opposite arrow-tip directions imply opposite headings. For signs on different faces of a post or differently oriented traffic lights, screen left and right alone do not establish an opposite or quarter-turn relation. Inspect their physical mounting and visible faces instead of automatically treating both cases alike.",
+        "Profile labels and pairwise perpendicularity statements are noisy estimates. A frontal face plus a side profile does not prove an exact 90-degree relation for every physical axis. The same left-pointing label assigned to two cars cannot override visible front/rear features showing that they travel in opposite directions.",
+        "For a clock laid on the ground, identify the real hour and minute hands and their relative angle before compass calibration. Rotate the entire dial and both hands together until the given hand matches its stated heading. Preserve the signed angular separation. Do not reset the hour hand to the nine marker for west while leaving the other hand in its original compass direction, and do not assume the twelve marker remains north."
+      ]
+    },
+    {
+      "title": "Determine the vertex, rays and requested angular opening",
+      "rules": [
+        "Identify the actual hinge or vertex and the two specified rays or planes. Trace them from their common origin before estimating an angle. A diagonal image profile does not uniquely mean 45 degrees, and a pair of profile labels does not directly measure a hinge opening. Judge visible geometry rather than choose a typical installation or tool angle from memory.",
+        "Distinguish an acute gap, the supplementary obtuse opening and a reflex rotation. If two adjacent angles use opposite rays of the same straight line they sum to 180 degrees. For a leaning phone or backrest, identify the particular forward ground or seat ray requested; a backward-leaning upright member can form an obtuse opening with that forward ray. Do not always return its acute tilt or assume every seat/back angle is exactly 90 degrees.",
+        "For a compass, safety pin or other two-arm tool, trace the two arms from the joint and estimate their actual spread. No law makes an open drafting compass a right angle or an open safety pin a fixed standard angle. For an easel or tripod, the opening between two legs viewed from the side differs from the azimuthal spacing of feet around a vertical axis; the latter may be 120 degrees for three equally spaced feet without making the former 120 degrees.",
+        "For hinged covers, windows or cases, identify the hinge axis and compare the two surfaces on the relevant side of the hinge. Closed and fully unfolded positions have different opening angles; do not identify 180 degrees with closed by default. A vertical face and a surface lying on a table can form a right angle, so do not force every pictured cover to be fully flat.",
+        "For rotor blades, count actual blades or trace their visible roots around the hub before using 360/n for equal azimuthal spacing. Common models and a graph listing four directions do not prove four physical blades. Perspective foreshortens projected angles, so distinguish physical equal spacing from unequal apparent gaps.",
+        "A right angle between named objects can concern their spatial layout rather than their facing directions. Locate all specified references and test the two conditions together. Distance from a microphone to a body part is distance from that microphone, not camera depth; compare the whole displacement and requested body part."
+      ]
+    },
+    {
+      "title": "Use the named observer, requested view and actual contact",
+      "rules": [
+        "Switch to the named observer's eye position and actual facing or gaze direction. Camera visibility alone does not prove visibility to a police officer, driver or reclining person. Objects behind that observer or blocked along the eye-to-object line may not be visible; being farther from the camera does not itself hide them. Missing observer nodes require looking at the observer in the image, not substituting the camera viewpoint.",
+        "An exact number visible to someone else cannot be obtained by merely counting all trees visible in the photograph when that person's visual field and occlusions are not established. Similarly, do not invent an unseen person or photographer's facial direction in an image containing only objects.",
+        "For a top view, inspect which rim, opening, central knob, handle and spout remain after the stated removal. A lidded round vessel can have an outer circular outline and a central smaller knob. A jug's asymmetric spout and curved handle may prevent a perfect circle-plus-rectangle description. Do not replace the particular pictured construction with a generic pot template or infer a physical shape solely from a perspective ellipse.",
+        "A straight approximately symmetric mop shaft can usually be gripped with either hand. Placement to the left of buckets does not make it inherently left-handed. Hand preference requires actual handed geometry, access constraints or a specified user pose; relative image position alone is insufficient.",
+        "Separate a child's balance from the stability of a fixed ladder or playhouse. A securely supported ladder can remain in place while the child leans beyond their own support and loses balance. For a magnifier tilted onto its round rim, curved edge contact may allow rolling if unsupported; this differs from laying its face and handle flat. Do not infer a flat contact merely because the notebook is flat.",
+        "For a route required to avoid collisions, assess the whole body's needed clearance and inspect the visible empty passage, including headroom under an open shelf. A narrow gap is not automatically collision-free. For transferring a sticker between curved surfaces, compare visible vertical extent and usable surface width in the specified alignment; sharing a frontal profile alone does not prove a perfect fit."
+      ]
+    },
+    {
+      "title": "Separate optical image size from illumination and physical size",
+      "rules": [
+        "A calm flat water surface reflects a virtual image with mirror geometry and unchanged physical dimensions; tilt changes orientation and projection rather than physically lengthening the person. Ripples can distort the image. Camera-projected extent, physical height and symmetry about the water plane are different claims.",
+        "Shadow size depends on the light, object and receiving surface geometry, not solely camera distance or a vague instruction to move backward. With a point light and fixed parallel screen, magnification is light-to-screen distance divided by light-to-object distance. Translation under approximately parallel illumination on the same receiving plane can preserve shadow scale. Do not infer smaller shadows just because the objects move farther from the camera.",
+        "Changing lamp position can enlarge, shorten or redirect a shadow depending on the new distances and angles. It does not physically grow the plant. A statement that a distant object appears smaller does not establish that its shadow becomes physically longer or invisible. Validate both parts of a compound option independently. Likewise moving a boat toward the camera does not universally shrink its reflection.",
+        "Treat precomputed geometry as auxiliary evidence and keep the question's reference and conditions explicit. A compass heading cannot be uniquely recovered from left/right placement without an absolute anchor. When an uncertainty option is available and essential information is missing, use it rather than invent a compass, measurement or exact observer field of view."
+      ]
+    }
+  ]
+}

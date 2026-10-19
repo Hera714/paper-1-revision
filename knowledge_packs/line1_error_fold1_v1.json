@@ -1,0 +1,45 @@
+{
+  "version": "line1_error_fold1_v1",
+  "route": "line1_base",
+  "sections": [
+    {
+      "title": "Interpret auxiliary evidence without treating labels as ground truth",
+      "rules": [
+        "The image is the observation; the scene graph is an estimated, potentially incomplete description. A named node does not prove that the object exists or has the asserted identity. Nothing, none, not applicable, and statements about depth or possibility are answer meanings, not physical objects with measurable locations.",
+        "Several mutually exclusive names assigned to the exact same image point do not provide independent evidence for those names. Extremely large repeated depths can be saturation or estimation failure, not evidence that all targets occupy the same distant plane. Verify such cases with visible contours and layout rather than breaking ties by listed order.",
+        "A scene-graph anchor is one sampled image point, not an object's full footprint, outline or extent. Depth at a transparent, reflective, thin or occluded point may belong to another surface. Do not let an implausible numeric ordering overrule clear overlap or contact boundaries. Keep valid geometry when it agrees with the image; do not discard every number merely because one estimate is bad.",
+        "A reference missing from the graph must be located in the image. Do not invent its coordinates, give it the depth of an unrelated named node, or pretend that the listed candidate objects exhaust the scene."
+      ]
+    },
+    {
+      "title": "Choose the correct coordinate frame and distance",
+      "rules": [
+        "For image left/right/top/bottom/corners use image points and visible extent: pixel x increases rightward and pixel y increases downward. Larger y means lower in the picture. Camera X/Y values include perspective scaling and cannot replace pixel ordering when objects are at different depths. For an ordinal corner position, establish the full order including the first item before selecting the second.",
+        "Nearest to a named object means distance from that object, not nearest to the camera. If consistent 3D coordinates exist for both reference and candidate, compare squared distance (X-Xref)^2+(Y-Yref)^2+(Z-Zref)^2. A small Z alone means nearer to the camera; a small absolute Z difference alone only means similar camera depth. Neither proves that two laterally separated objects are close.",
+        "For distance to an extended road, doorway or furniture surface, locate the relevant boundary or part in the image. The camera is not automatically on that road or at that reference. Do not substitute camera distance when the actual reference is absent from the graph.",
+        "Appearance alignment is not facing direction. Compare compatible landmarks or positions on both axes. A substantial vertical offset together with a horizontal offset gives diagonal image alignment. Several objects may lie approximately along an image row even if noisy camera depths differ; use 3D collinearity only when the question asks physical ground-plane alignment.",
+        "A collection can include both horizontal rows and vertical columns. One graph node representing cabinets cannot establish the arrangement of the individual doors. Side by side means neighboring on the same supporting layer; it does not require a perfectly straight row or identical orientation."
+      ]
+    },
+    {
+      "title": "Separate depth, occlusion and object-relative relations",
+      "rules": [
+        "In front in camera depth differs from layered in front of or obscuring another object. Occlusion requires projected overlap and interrupted target contours as well as front-to-back ordering. A floor item nearer to the camera but below and separated from a bucket does not cover the bucket. None can be correct for an occlusion question despite nearer objects elsewhere in the image.",
+        "Directly behind asks for the background immediately aligned with the target's visible region or specified rear direction. Do not choose the first candidate with greater Z or the object farthest away in the whole scene. Inspect the local background surface, not all distant objects indiscriminately. A vehicle carrying people is a distinct whole from an individual person seated in it.",
+        "Apply all spatial clauses to the same candidate: behind one reference and in front of another is an intersection of constraints, not permission to choose whichever single relation matches. Resolve which instance of repeated trees, people or animals supplies each reference. A nearer tree at the frame edge does not stand for every tree in the background.",
+        "Behind a person may refer to the side behind the person's body, while behind in the image refers to camera depth. Obstructing a person's view requires that person's eye-to-target line; hiding the person from the camera requires camera-to-person overlap. State the interpretation supported by the wording and image rather than substitute minimum Z for either relation.",
+        "For relations inside a reflected scene, compare depicted objects inside that scene. The mirror holding the image is not automatically between every pair of reflected landmarks. Likewise a picture displayed on a screen does not put the depicted landscape at the physical depth of the screen."
+      ]
+    },
+    {
+      "title": "Bind candidates, count instances and assess access",
+      "rules": [
+        "Filter candidates by visible attributes before ranking: paper can be white even when not called white in the node name. Distinguish the color of a visible cup, cover or handle from a mistaken graph label by comparing it with neighboring colors. Object identity and color are hypotheses to verify, not facts guaranteed by a node name.",
+        "When a compound option names two parts of a visible integrated appliance, verify both parts against the requested region. A cooker can have a stove top and oven below the same hood. Do not stop after recognizing the most salient component, but do not choose a compound answer unless every named component satisfies the question.",
+        "For ordinal proximity or depth, identify the reference and sort all eligible candidates using the requested relation; do not mix a horizontal rank with a depth rank. Exclude the reference itself when counting other objects or objects strictly between endpoints. For a row of books, distinguish intervening book count from positional separation; use visible spine boundaries and the wording, not invented titles or hypothetical positions.",
+        "Trace a person's approach corridor or hand-reach region to the actual target. Objects elsewhere in the photograph do not automatically require removal. Distinguish visual overlap from an obstruction to physical access. A seated person may need clearance beside a chair before walking, but a chair is not a blocker just because it is named in the graph.",
+        "For falling objects, inspect the vertical sweep and the nearest intervening surface. Furniture below can be the first contact before the floor; the relative depths of single sampled centers do not by themselves exclude an overlap of extended objects. A later bounce needs a plausible contact and motion, not a universal rule that every falling frame bounces."
+      ]
+    }
+  ]
+}

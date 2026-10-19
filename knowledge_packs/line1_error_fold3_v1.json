@@ -1,0 +1,44 @@
+{
+  "version": "line1_error_fold3_v1",
+  "route": "line1_base",
+  "sections": [
+    {
+      "title": "Use the requested reference and the correct spatial frame",
+      "rules": [
+        "Identify the target and every named reference before ranking candidates. Nearest or second-farthest from a named object is not nearest or farthest from the camera. With consistent 3D coordinates for both objects, compare (X-Xref)^2+(Y-Yref)^2+(Z-Zref)^2. Comparing only Z or absolute Z differences ignores lateral and vertical separation. If the reference is absent from the graph, locate it in the image; do not invent its coordinates.",
+        "For between A and B, inspect the actual region separating those references and test this constraint first. Then apply frontmost or another requested rank to the eligible objects. A nearer object outside that region does not satisfy between. Below A differs from between two side-by-side landmarks.",
+        "Image-plane x grows rightward and y grows downward. Judge image center using both coordinates and the actual frame dimensions, not only the horizontal midpoint. For a head, brush head, handle, pot or edge, locate the requested part rather than use the sampled point of the whole body or shaft. A named group has extent that one point cannot describe.",
+        "Compare each eligible candidate before choosing an ordinal rank; do not stop after the first node in the graph. Node names and colors can be mistaken. Missing alternatives are not automatically irrelevant, and partly visible objects still count when their identity is supported."
+      ]
+    },
+    {
+      "title": "Distinguish overlap, support, alignment and orientation",
+      "rules": [
+        "A lower camera depth is not sufficient to hide another object. Occlusion needs overlapping image regions and an interrupted rear contour. Verify which shelf or local region each item occupies. Small depth differences between adjacent surfaces may be estimation noise; a visible front contour is stronger evidence than a slightly reversed estimated ordering.",
+        "An object can cover portions of multiple objects at once; inspect its whole silhouette and each option. A camera pictured as a physical object can block what is behind its body regardless of where its lens points. Do not confuse an object's field of view with the photograph's occlusion of other items. Check every part of a compound option.",
+        "Standing on asks for the immediate contact support, not merely the large surface underneath the entire arrangement. If thin layers intervene, trace the contact downward one layer at a time and count visibly distinct layers. Do not infer multiple hidden layers without visible evidence.",
+        "Alignment of several poles or trees describes the sequence of their positions, not the vertical orientation of each trunk. Upright poles can recede diagonally across an image. A row need not have identical heights or perfectly regular spacing. For pot alignment, exclude the specified plant using actual plant height, then compare the remaining pots in image x and y; similar Z does not make their image arrangement horizontal.",
+        "Treat a frame, opening or edge as a possible occluded target, not just a named standalone object. A cup can interrupt a table edge without covering another cup. Conversely an underlying puddle is not a separate object between two reflected people, and a still reflection does not prove that a splash exists."
+      ]
+    },
+    {
+      "title": "Follow actual passage, contact and available space",
+      "rules": [
+        "Trace the complete route from the specified start to the destination. A node named aisle at an intermediate Z does not prove that an open walking corridor connects both endpoints. Inspect seats, railings, level changes and gaps. Furniture in a room does not itself prove blockage; only objects intersecting the needed passage count.",
+        "Use visible door state and opening geometry. An open passage beside a closed panel can provide access without opening that panel. An archway or tunnel does not by itself provide an ascent to the top of a slide; trace where the climbing connection goes. The nearest obstacle is not necessarily the fastest traversable route.",
+        "For sequences, list encountered people, occupied benches, empty benches and landmarks along the chosen approach in order. A large foreground tree off the path need not be the first encountered obstacle. At a junction follow connected crossings and corners rather than invent a diagonal crossing because the destination is across the image.",
+        "Assess obstructions separately for each requested branch or road, and check every component of a combined option. Do not swap image left/right or road segments while comparing a crowd, traffic or barriers.",
+        "Physical access depends on the operation: reaching a tabletop object uses the hand's approach and grasp region, not necessarily the floor space in front of the table. Vehicle passage needs a continuous drivable surface as well as adequate width and height; steps can prevent passage even if a doorway looks wide. For warehouse placement, count rack tiers from the bottom and inspect vacant capacity on each tier. A bay label is not a shelf level, and the lowest tier is not automatically available."
+      ]
+    },
+    {
+      "title": "Separate observation, reflection and hypothetical change",
+      "rules": [
+        "Use reflected content when the question refers to a person or road seen in a mirror. Resolve both landmarks in the same depicted scene rather than replace the relation with the mirror's physical position. Nearby mirror-surface depths do not measure distances to the reflected cars, hands or distant scenery. Do not invent a hidden seat belt, splash, flower or person from an unreliable label.",
+        "For hypothetical movement or removal, update the specified condition before answering. A distant feature viewed from close is no longer viewed at its old camera distance. Moving an object closer increases its apparent angular size while leaving its physical dimensions unchanged; the photograph alone does not prove that windows on different buildings have identical real sizes.",
+        "Removing cushions can expose a frame, rim or opening; distinguish the remaining structure from the filled cushion silhouette. A perspective ellipse does not prove an oval physical footprint, and an apparently round seat need not be a solid perfect disk. Infer the top view only as far as visible construction supports it.",
+        "Auxiliary coordinates are sampled estimates, not exact object extents or ground-truth identities. A nearby surface, thin wire, reflective lens or partly hidden object can have an incorrect estimated depth. When geometry conflicts with visible overlap or target identity, verify the relevant image region instead of repeating numerical comparisons. A label such as another coral does not make that node the requested topmost coral. Resolve the actual reference first."
+      ]
+    }
+  ]
+}

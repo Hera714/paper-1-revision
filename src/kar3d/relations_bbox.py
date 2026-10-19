@@ -22,6 +22,21 @@ def generate_bbox_relations(scene_graph):
         return "Not enough objects to determine relative positioning."
 
     relations = []
+    occluded_names = set()
+    for i in range(len(scene_graph)):
+        for j in range(i + 1, len(scene_graph)):
+            a, b = scene_graph[i], scene_graph[j]
+            if "bbox_2d" not in a or "bbox_2d" not in b:
+                continue
+            if _calculate_iou(a["bbox_2d"], b["bbox_2d"]) <= 0.01:
+                continue
+            z_a = a.get("global_3d_position", {}).get("Z_meters", 999)
+            z_b = b.get("global_3d_position", {}).get("Z_meters", 999)
+            if z_a < z_b - 0.2:
+                occluded_names.add(b.get("name"))
+            elif z_b < z_a - 0.2:
+                occluded_names.add(a.get("name"))
+
 
     # ==============================================================
     # 1. 高度与尺寸链式推导 (Sorted Height Comparison)
@@ -38,11 +53,28 @@ def generate_bbox_relations(scene_graph):
             h_a = obj_a['Physical_Height']
             h_b = obj_b['Physical_Height']
             
-            # 引入 15% 的容差阈值
-            if h_b / h_a > 1.15:
-                relations.append(f"- '{obj_a['name']}' is SHORTER/SMALLER than '{obj_b['name']}'.")
+            ratio = h_b / h_a
+            if obj_a.get("name") in occluded_names or obj_b.get("name") in occluded_names:
+                relations.append(
+                    "- Size comparison between {} and {} is UNRELIABLE because a bounding box is partially occluded; do not infer actual size from the truncated visible box.".format(
+                        obj_a.get("name"), obj_b.get("name")
+                    )
+                )
+            elif ratio > 1.5:
+                relations.append(
+                    "- {} is CLEARLY SHORTER/SMALLER than {} (estimated height ratio {:.2f}); verify against the image.".format(
+                        obj_a.get("name"), obj_b.get("name"), ratio
+                    )
+                )
             else:
-                relations.append(f"- '{obj_a['name']}' and '{obj_b['name']}' are of APPROXIMATELY SIMILAR HEIGHT.")
+                relations.append(
+                    "- {} and {} have APPROXIMATELY SIMILAR HEIGHT within estimation uncertainty.".format(
+                        obj_a.get("name"), obj_b.get("name")
+                    )
+                )
+        reliable_heights = [obj["Physical_Height"] for obj in valid_height_objs if obj.get("name") not in occluded_names]
+        if occluded_names and len(reliable_heights) >= 2 and max(reliable_heights) / min(reliable_heights) <= 1.5:
+            relations.append("- Overall, reliable evidence indicates MOST objects are similar in size; occluded objects do not justify concluding that all objects differ.")
     else:
         # 显式否定兜底
         relations.append("- Not enough valid physical dimensions extracted to compare sizes.")

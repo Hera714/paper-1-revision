@@ -1,0 +1,44 @@
+{
+  "version": "line0_error_fold2_v1",
+  "route": "line0_pure_vlm",
+  "sections": [
+    {
+      "title": "Resolve the requested object, relation and change",
+      "rules": [
+        "Bind the target, reference and requested property before comparing options. If options are colors, decide whether the requested color belongs to another flower, its pot, or the distant wall from the wording and local overlap, rather than automatically naming the overall background. Follow a described object's contour to its own handle or exposed portion.",
+        "For an object between two landmarks, inspect the bounded region between their locations in the same scene or reflected scene. Do not substitute the mirror frame, table or room merely because that object holds the reflection. For foreground of a mountain range, distinguish a terrain region such as a valley from individual trees within it using the requested level of description.",
+        "Moving an occluder asks what becomes newly visible. An eraser or other item already unobstructed is not a newly revealed object. Inspect what the moved object's silhouette actually covers; do not invent hidden objects behind it.",
+        "Count distinct objects, including partly exposed ones, by location. A tool protruding from a bucket is an instance even when its lower end is hidden. Separate a mop from its bucket if both are counted physical objects. A mirror on the far wall belongs to the far depth layer even though it depicts a nearer room. Count each object once; match the resulting quantity to its option index only after counting."
+      ]
+    },
+    {
+      "title": "Routes and hypothetical views",
+      "rules": [
+        "Trace a route from the specified starting viewpoint toward the destination and order encountered objects by position along that route, not by their height or visual prominence. Nearby pedestrians can be encountered before a large tree farther along the path. Include every separate person actually intersecting the approach corridor, including partly overlapped people.",
+        "Returning to the same starting point without moving backward requires a connected loop. Trace each leg and count crossing events along the complete loop, not only the nearest crosswalk. At a conventional four-sided junction a perimeter loop uses each side's crossing; verify the actual connections rather than blindly applying a fixed count to every road scene.",
+        "For stairs, follow the visible flights and landings to the specified level. Count changes of travel direction at connecting landings separately from the number of flights or floors; do not stop after the first storey's turns.",
+        "A bird's-eye observer defines a viewpoint rather than the subject. A roof's plan shape follows the building footprint and attached wings or rounded ends. A small cross ornament does not make an entire church roof cross-shaped. Infer from the pictured architecture rather than a generic church template.",
+        "Visibility from a person's eyes differs from visibility from an elevated camera. Trace the eye-to-target line and obstacles such as walls and rails. Seeing a distant field in the photograph alone does not prove that a lower seated observer sees it. Moving forward is not inherently a way to see more sky; inspect whether nearby awnings or buildings cover a larger or smaller angular region."
+      ]
+    },
+    {
+      "title": "Forces, stability and relative dimensions",
+      "rules": [
+        "Gravity acts vertically downward. On a horizontal support there is no downhill component driving objects toward the center. Static friction is a response to an actual tangential tendency and is at most its limiting value; it need not exceed an imaginary sideways force. Do not invent stickiness, magnetism or a force pulling all tabletop objects inward.",
+        "Assess support footprint, contact, wheels, position of the load and center of mass before predicting tipping. A glass tabletop is not automatically unstable merely because glass can break. A supported table may flex or wobble without sliding, tipping or collapsing. A push or shake has no fixed consequence independent of its strength.",
+        "A rolling body's interaction with a small obstacle depends on speed, kinetic energy, obstacle height and contact. A comb is not universally incapable of stopping a rolling container. A child who releases one hand may still retain foot contact, another support or the ability to recover; losing one handhold does not by itself prove a complete fall. Do not assume an unspecified collision or direction of motion.",
+        "For side-by-side stacks compare like totals: height of first base plus its upper item versus height of second base plus its upper item. Do not compare a whole stack with just one component or add both upper items to each base when one is intended per base. Similar units can form similar total heights without asserting that all manufactured items are identical.",
+        "Separate volume of material, enclosed capacity and visual envelope. A porous stack may lose air gaps when compressed; reshaping does not create material. A flat plate still has thickness, but a photograph without dimensions does not justify an arbitrary numerical volume ranking. Added hair extensions increase the combined hair volume; shine is a different property."
+      ]
+    },
+    {
+      "title": "Optics, task precision and uncertainty",
+      "rules": [
+        "Identify whether the visible secondary image is a reflection, transmission or a shadow, even if the question uses an imprecise word. A flat mirror produces an equal-sized virtual object at equal distance behind its plane, with mirrored geometry; different source objects do not prevent each object and its own reflection from corresponding. A curved outward-reflecting surface may show a reduced wide-angle view. Ordinary sunglasses do not necessarily magnify the scene.",
+        "A long vertical cylinder viewed from the side has an elongated side outline rather than the circular outline of its end. Projection depends on viewing and illumination directions. As the sun lowers, shadows on approximately level ground generally lengthen before weakening and disappearing when direct sunlight is lost; the final nighttime state alone omits the preceding change.",
+        "For handedness evidence, precise small-tool actions such as scooping or controlled application usually reveal preferred manipulation more directly than simply moving a broad lid. This is probabilistic; a photograph does not prove every person's hand preference. For reflection strength due to material, inspect exposed polished surfaces and highlights rather than assume every dark sunglass lens is a mirror.",
+        "Prefer the option that expresses the supported conclusion most completely, including its conditions. Do not turn 'not necessarily' into 'impossible', or confuse a true but incomplete statement with an option explaining the requested comparison. Use an uncertainty option when necessary information is absent, rather than invent dimensions, hidden geometry or exact equipment capacity."
+      ]
+    }
+  ]
+}

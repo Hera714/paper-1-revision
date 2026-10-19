@@ -19,3 +19,13 @@ modelscope_cache/
 *.safetensors
 *.pt
 *.pth
+
+# Local server scratch files and generated evidence exports.
+.ipynb_checkpoints/
+.reference_upload/
+checkpoints
+*.tar
+*.tar.gz
+*.before_*
+configs/line*_error_folds_seed42/errors.jsonl
+configs/line2_knowledge_iteration_seed42/

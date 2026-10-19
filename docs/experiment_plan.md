@@ -32,13 +32,13 @@ when an experiment is added, changed, completed, or removed.
 
 ## P0 — first server validation
 
-- [ ] Run static import and environment checks in the `ovis` environment.
-- [ ] Run route-only prediction on all 1,400 questions.
-- [ ] Report route distribution, oracle agreement, confusion matrix, confidence
+- [x] Run static import and environment checks in the `ovis` environment.
+- [x] Run route-only prediction on all 1,400 questions.
+- [x] Report route distribution, oracle agreement, confusion matrix, confidence
   distribution, and low-confidence fallback rate.
-- [ ] Manually inspect at least 20 disagreements per predicted route.
-- [ ] Run an end-to-end stratified pilot before the full benchmark.
-- [ ] Freeze the accepted router prompt and confidence threshold.
+- [x] Manually inspect at least 20 disagreements per predicted route.
+- [x] Run an end-to-end stratified pilot before the full benchmark.
+- [x] Freeze the accepted router prompt and confidence threshold.
 
 ## Main experiments
 
@@ -86,3 +86,17 @@ The paper must state this explicitly and list every enabled component per row.
 - [ ] Update related work, novelty comparison, tables, limitations, and response
   to reviewers.
 - [ ] Replace all old result numbers with reproducible run artifacts.
+
+## 2026-10-13 V4 repair and rerun log
+
+- Original full run: 641/1400, 45.7857%.
+- Parser-only conservative rescore: 652/1400, 46.5714%; 29 Unknown outputs recovered and 11 were correct. The original JSONL remains unchanged.
+- Fixed answer formats, first-JSON parsing, extraction diagnostics, larger structured-output budget, explicit image-plane coordinates, and exact final answer tags.
+- Refined the question-only router without adding metadata or answer-option access.
+- Added occlusion-aware bbox uncertainty and removed contradictory hard pose deductions.
+- Ten-case V2 pilot reached 7/10; the later bbox repair corrected case 3, giving an expected 8/10 on the same set.
+- Case 5 remained wrong under both the orientation route and forced direct VLM route, so no sample-specific rule was added.
+- Full V4 run started in screen session auto_revision_v4.
+- Config: configs/auto_revision_v4.yaml
+- Output: outputs/auto_revision_v4_seed42/
+- Log: outputs/auto_revision_v4_seed42/screen.log

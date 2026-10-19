@@ -42,6 +42,9 @@ def main():
     subset = dataset[config.start_index:end]
     completed = {str(row["id"]) for row in read_jsonl(output_path)}
 
+    model_path = Path(config.model_path)
+    if model_path.is_absolute() and not model_path.is_dir():
+        raise FileNotFoundError(f"Ovis model directory not found: {model_path}")
     perception = Ovis3DPerceptionModule(model_path=config.model_path)
     router = QuestionOnlyRouter(
         perception.generate_text,

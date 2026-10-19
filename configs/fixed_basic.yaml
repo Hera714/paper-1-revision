@@ -1,5 +1,6 @@
 run_name: fixed_basic_seed42
-model_path: AIDC-AI/Ovis2.5-9B
+model_path: /root/autodl-fs/modelscope_cache/AIDC-AI/Ovis2___5-9B
+depth_checkpoint_path: /root/autodl-tmp/ml-depth-pro/checkpoints/depth_pro.pt
 data_path: data/raw/spatiallab_mcq.json
 image_dir: /root/autodl-fs/img
 output_root: outputs

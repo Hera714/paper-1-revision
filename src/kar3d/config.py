@@ -10,7 +10,8 @@ import yaml
 @dataclass
 class ExperimentConfig:
     run_name: str
-    model_path: str = "AIDC-AI/Ovis2.5-9B"
+    model_path: str = "/root/autodl-fs/modelscope_cache/AIDC-AI/Ovis2___5-9B"
+    depth_checkpoint_path: str = "/root/autodl-tmp/ml-depth-pro/checkpoints/depth_pro.pt"
     data_path: str = "data/raw/spatiallab_mcq.json"
     image_dir: str = "/root/autodl-fs/img"
     output_root: str = "outputs"
@@ -28,6 +29,7 @@ class ExperimentConfig:
     use_symbolic_relations: bool = True
     use_knowledge: bool = True
     use_scene_graph_context: bool = True
+    reference_coverage_mode: str = "off"
     extra: Dict[str, Any] = field(default_factory=dict)
 
     @classmethod
@@ -41,6 +43,8 @@ class ExperimentConfig:
         config = cls(**values)
         if config.router_mode not in {"auto", "oracle", "fixed"}:
             raise ValueError("router_mode must be auto, oracle, or fixed")
+        if config.reference_coverage_mode not in {"off", "audit", "repair"}:
+            raise ValueError("reference_coverage_mode must be off, audit, or repair")
         return config
 
     def resolve_project_path(self, project_root: Path, value: str) -> Path:

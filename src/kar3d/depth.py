@@ -3,12 +3,21 @@
 import torch
 import math
 import depth_pro
+from dataclasses import replace
+from pathlib import Path
+from depth_pro.depth_pro import DEFAULT_MONODEPTH_CONFIG_DICT
 
 
 class DepthPro3DModule:
-    def __init__(self):
+    def __init__(self, checkpoint_path=None):
         print("Loading Depth-Pro 3D Module...")
-        self.model, self.transform = depth_pro.create_model_and_transforms()
+        model_config = DEFAULT_MONODEPTH_CONFIG_DICT
+        if checkpoint_path is not None:
+            checkpoint_path = Path(checkpoint_path)
+            if not checkpoint_path.is_file():
+                raise FileNotFoundError(f"Depth Pro checkpoint not found: {checkpoint_path}")
+            model_config = replace(model_config, checkpoint_uri=str(checkpoint_path))
+        self.model, self.transform = depth_pro.create_model_and_transforms(config=model_config)
         self.model.eval()
         if torch.cuda.is_available():
             self.model = self.model.cuda()

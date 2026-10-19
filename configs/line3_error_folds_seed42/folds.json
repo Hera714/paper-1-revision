@@ -1,0 +1,107 @@
+{
+  "schema": "line3_error_folds_v1",
+  "source_predictions": "/root/autodl-tmp/paper-1-revision/outputs/auto_revision_v4_seed42/predictions.jsonl",
+  "source_sha256": "9a0f65b53f3856174b557b9f8eb21ebddbe19feded3445bf780d475046f55b80",
+  "source_run": "auto_revision_v4_seed42",
+  "route": "line3_bbox",
+  "selection_rule": "selected_route == line3_bbox and status == ok and is_correct == false",
+  "seed": 42,
+  "split": "shuffle with random.Random(seed), then round-robin assignment",
+  "target_fold_size": 50,
+  "total_errors": 147,
+  "n_folds": 3,
+  "fold_sizes": [
+    49,
+    49,
+    49
+  ],
+  "all_ids_file": "all_error_ids.ids",
+  "extracted_rows_file": "errors.jsonl",
+  "folds": {
+    "fold1": {
+      "ids_file": "fold1.ids",
+      "count": 49,
+      "categories": {
+        "3D Geometry": 12,
+        "Depth & Occlusion": 2,
+        "Relative Positioning": 5,
+        "Size & Scale": 25,
+        "Spatial Navigation": 5
+      },
+      "sub_categories": {
+        "Alignment Patterns": 3,
+        "Distance-Size Correlation": 6,
+        "Layering Order": 1,
+        "Obstacle Avoidance": 1,
+        "Partial Occlusion": 1,
+        "Pathway Existence": 1,
+        "Perspective Distortion": 6,
+        "Proximity Gradients": 2,
+        "Relative Size Comparison": 3,
+        "Scale Consistency": 7,
+        "Shadow-Size Projection": 3,
+        "Spatial Containment": 4,
+        "Spatial Sequence": 1,
+        "Viewpoint Visibility": 2,
+        "Volume Comparison": 8
+      }
+    },
+    "fold2": {
+      "ids_file": "fold2.ids",
+      "count": 49,
+      "categories": {
+        "3D Geometry": 19,
+        "Depth & Occlusion": 3,
+        "Relative Positioning": 5,
+        "Size & Scale": 21,
+        "Spatial Navigation": 1
+      },
+      "sub_categories": {
+        "Alignment Patterns": 3,
+        "Corner/Angle Positioning": 1,
+        "Distance-Size Correlation": 2,
+        "Layering Order": 3,
+        "Perspective Distortion": 4,
+        "Proximity Gradients": 1,
+        "Relative Size Comparison": 6,
+        "Scale Consistency": 7,
+        "Shadow-Size Projection": 2,
+        "Spatial Containment": 12,
+        "Spatial Sequence": 1,
+        "Stability Prediction": 1,
+        "Volume Comparison": 6
+      }
+    },
+    "fold3": {
+      "ids_file": "fold3.ids",
+      "count": 49,
+      "categories": {
+        "3D Geometry": 15,
+        "Depth & Occlusion": 3,
+        "Orientation": 1,
+        "Relative Positioning": 2,
+        "Size & Scale": 25,
+        "Spatial Navigation": 3
+      },
+      "sub_categories": {
+        "Accessibility Constraints": 1,
+        "Corner/Angle Positioning": 1,
+        "Distance-Size Correlation": 4,
+        "Obstacle Avoidance": 1,
+        "Partial Occlusion": 2,
+        "Perspective Distortion": 8,
+        "Proximity Gradients": 1,
+        "Reflective Surfaces": 1,
+        "Relative Size Comparison": 3,
+        "Scale Consistency": 6,
+        "Shadow-Size Projection": 4,
+        "Shape Projection": 1,
+        "Spatial Containment": 7,
+        "Stability Prediction": 1,
+        "Stacking Orientation": 1,
+        "Viewpoint Visibility": 1,
+        "Volume Comparison": 6
+      }
+    }
+  }
+}

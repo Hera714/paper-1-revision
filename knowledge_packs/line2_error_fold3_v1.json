@@ -1,0 +1,49 @@
+{
+  "version": "line2_error_fold3_v1",
+  "route": "line2_orientation",
+  "sections": [
+    {
+      "title": "Bind physical heading and use explicit directional evidence",
+      "rules": [
+        "Separate object location, body orientation, gaze, motion and the particular part's pointing direction. Behind a figure describes its position, not an opposite or sideways heading. Two figures placed one behind another may face the same way. Decide from their faces, beaks, fronts or defining parts rather than the relative location alone.",
+        "Read explicit compass text and associate it with its own arrow or route panel before inventing a map from picture axes. A visible EAST or WEST route label calibrates the corresponding signed route direction. Another arrow aligned with that same road direction can inherit the calibration. Picture right is not automatically east and picture up is not automatically north.",
+        "For pencils, follow the actual sharpened tip; a decorative bent shaft can rise vertically and then point sideways. Do not use a graph's left/right label when the visible tip disagrees. Calibrate the reference tip to its given compass heading and preserve the signed angle to the target tip. For genuine ground-plane rotations, clockwise compass order is north, east, south, west; opposite reverses the heading.",
+        "For chairs, facing runs from backrest toward the open front of the seat. Different image profiles or opposite screen positions do not prove that the chairs face each other. A pair placed around adjacent sides of a table may form a quarter turn. Use seat fronts and backrests to distinguish that from opposite seating.",
+        "For a bus doorway or sign face, distinguish an outward surface normal from the vehicle's travel axis and from an arrow printed on the surface. For boats and cars on crossing waterways and roads, identify the correct instance and actual nose first. Side-profile labels alone do not establish parallel motion.",
+        "A scene-graph name that already claims north-facing or south-facing is an estimate, not an independent compass measurement. Verify it against the stated reference and the visible mounting. Do not derive compass headings from an uncalibrated forward, sideways or left-corner description."
+      ]
+    },
+    {
+      "title": "Identify the angular quantity before estimating it",
+      "rules": [
+        "Locate the hinge, vertex or baseline and the two rays defining the requested angle. A car door opens about its hinge relative to its closed plane, not relative to the camera's picture border. A monitor's tilt commonly means its small deviation from upright, whereas its angle to the desktop uses a different baseline. Choose the quantity asked for before comparing options.",
+        "A lamp has several distinct angles: its stem joint, the lamp-head axis, and the direction of emitted light. Trace the specified members; a vertical stem does not force a right-angle bend. For a crane, the hanging cable follows gravity while the boom has its own slope; compare their actual axes rather than the curved hook's outline.",
+        "For hinged screens and windows, estimate opening from visible construction, hinge and closed position. Diagonal_front is not a measurement of 45 degrees, side_profile does not imply 90 degrees between objects, and frontal versus side labels do not prove perpendicular physical axes. A ladder rising alongside a wall can be parallel to the wall even if seen from the side.",
+        "For a missing circular sector, trace the two cut boundaries back to their common center and estimate the wedge itself. Do not assume eight equal pizza slices merely because that is a familiar cutting pattern. For a shallow tray viewed exactly edge-on, the basic silhouette may be almost a line while its finite thickness forms a very thin profile; distinguish a basic outline description from an invented thick rectangle.",
+        "For a hypothetical side or top view, retain the particular object's curvature, openings, rim and protrusions. A dome-like canopy may have an approximately semicircular side outline despite seams and panels. A new viewpoint may also introduce occlusion by an overhanging branch; check the projected overlap instead of assuming every overhead object is transparent."
+      ]
+    },
+    {
+      "title": "Resolve the observer and execute the requested operation",
+      "rules": [
+        "Use the named observer's eye location and body facing, not the camera origin, to decide which object is ahead or visible. For a seated person looking toward a window, compare the actual eye level with the point looked at; a window spanning that level can be straight ahead. A window or other architectural feature is not automatically above every seated person's gaze.",
+        "Locate what lies along the student's actual gaze ray and identify it by contents and structure. A glass-covered noticeboard is not necessarily a window merely because it is bright or glazed. Visible-to-camera and visible-to-a-seated-observer are different conditions; objects behind the observer or blocked along the eye line may be absent from their forward view.",
+        "Respect inward and outward relative to the interior of the doorway. An inward-opening door sweeps into the room, not automatically over an exterior step. Evaluate the dog's actual footprint separately from the door sweep rather than treating the entire step as blocked. For a sliding cabinet panel, inspect which opening the panel covers; do not treat objects on top as blocked solely because they share a side.",
+        "Directions such as front, left and backward may be relative to a truck or taxi. Moving in the vehicle's forward direction can appear as image left. Preserve that frame when mapping to the option text. For a route, follow successive connected segments and count every turn including entry into the requested parking area; do not infer a full sequence from just start and end positions.",
+        "An operation can require more than fitting inside a visible outline: placing a clock on a typewriter also requires a stable contact patch behind the keys. Separate whether temporary placement is possible from whether it remains upright. For climbing, compare actual slope, footholds and connection to the destination rather than assume all sides have equal difficulty.",
+        "When assessing evidence of handedness during polishing, inspect the repeated controlled wiping or manipulating action as well as the hand holding the object. Repetitive skilled action can reveal a consistent preferred active hand more clearly than a single pickup or put-down. Mere placement of an object to one side is not proof of the user's handedness."
+      ]
+    },
+    {
+      "title": "Apply conditional support, optical and distance rules",
+      "rules": [
+        "Judge stability from the actual contact patch, center of mass, friction and support. A thin flexible packet standing on a narrow edge may depend on backing support; do not assume every sealed packet is a rigid freestanding box. Conversely, an unseen support remains a hypothesis unless the visible configuration requires it. A small gradual tilt need not immediately overcome friction or a local contact barrier.",
+        "Under shaking, mobility depends on contact geometry and resistance rather than flexibility alone. A smooth long cylinder can roll readily while a rough wound ball may deform and resist rolling; a stapler's broad flat base and a scissors' flat contact differ from cylindrical pencils. Do not claim all lighter or softer objects must move more.",
+        "For a point lamp and a fixed parallel receiving screen, shadow magnification equals light-to-screen distance divided by light-to-object distance. Moving the same object nearer the light can enlarge its projected shadow. For sunlight on level ground, shadow length instead depends on object height and solar elevation; do not apply a near-lamp rule universally to all ground shadows. Keep the light geometry specified in the question distinct from camera proximity.",
+        "Curved glass with water can produce reflection, refraction and multiple distorted images at once. Their apparent sizes depend on distances and curvature; do not assert a universal rule that one side's image shrinks whenever the other grows. Likewise a changing light's projected patch can be clipped into different shapes by an opening; the order of shapes must follow the stated motion and actual clipping geometry.",
+        "For nearest or farthest from a named object, first locate that reference and compare full relative positions, not just camera depth. Resolve multi-clause questions in sequence: identify the object a tool points toward, then apply the requested distance comparison to the correct referent. A missing reference cannot be assigned an invented coordinate.",
+        "Treat the cached scene graph and generated geometric deductions as fallible aids. Check actual image evidence when labels conflict with defining parts or relations. Evaluate the complete meaning of each option, keep physically valid conditions, and finish with a single selected option index rather than repeat speculative contradictions."
+      ]
+    }
+  ]
+}

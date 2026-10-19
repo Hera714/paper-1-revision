@@ -27,6 +27,7 @@ from kar3d.routing import FixedRouter, OracleMetadataRouter, QuestionOnlyRouter
 def parse_args():
     parser = argparse.ArgumentParser(description="Run one reproducible 3D-KAR experiment.")
     parser.add_argument("--config", required=True, help="YAML experiment config")
+    parser.add_argument("--ids", default="", help="Comma-separated dataset IDs for a fixed pilot")
     return parser.parse_args()
 
 
@@ -67,7 +68,25 @@ def main():
     dataset = json.loads(data_path.read_text(encoding="utf-8"))
     end = config.end_index if config.end_index is not None else len(dataset)
     subset = dataset[config.start_index:end]
+    if args.ids:
+        requested = [value.strip() for value in args.ids.split(",") if value.strip()]
+        if len(set(requested)) != len(requested):
+            raise ValueError("--ids contains duplicate IDs")
+        indexed = {str(item["id"]): item for item in dataset}
+        unknown = set(requested) - set(indexed)
+        if unknown:
+            raise ValueError(f"Unknown dataset IDs: {sorted(unknown)}")
+        subset = [indexed[item_id] for item_id in requested]
+        selection_path = run_dir / "selected_ids.json"
+        if selection_path.exists():
+            if json.loads(selection_path.read_text(encoding="utf-8")) != requested:
+                raise ValueError(f"Pilot ID selection changed: {selection_path}")
+        else:
+            selection_path.write_text(json.dumps(requested, indent=2) + "\n", encoding="utf-8")
 
+    model_path = Path(config.model_path)
+    if model_path.is_absolute() and not model_path.is_dir():
+        raise FileNotFoundError(f"Ovis model directory not found: {model_path}")
     perception = Ovis3DPerceptionModule(model_path=config.model_path)
     if config.router_mode == "auto":
         router = QuestionOnlyRouter(
@@ -79,7 +98,9 @@ def main():
     else:
         router = FixedRouter(config.fixed_route)
 
-    depth = DepthPro3DModule() if config.use_depth else None
+    depth = DepthPro3DModule(
+        checkpoint_path=config.resolve_project_path(PROJECT_ROOT, config.depth_checkpoint_path)
+    ) if config.use_depth else None
     knowledge = None
     if config.use_knowledge:
         knowledge = RouteKnowledgeInjector(
@@ -100,6 +121,7 @@ def main():
         use_symbolic_relations=config.use_symbolic_relations,
         use_knowledge=config.use_knowledge,
         use_scene_graph_context=config.use_scene_graph_context,
+        reference_coverage_mode=config.reference_coverage_mode,
     )
 
     completed = {str(row["id"]) for row in read_jsonl(predictions_path)}

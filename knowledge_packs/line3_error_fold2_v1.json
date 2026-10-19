@@ -1,0 +1,71 @@
+{
+  "version": "line3_error_fold2_v1",
+  "route": "line3_bbox",
+  "sections": [
+    {
+      "title": "1. Match the requested quantity and object part",
+      "rules": [
+        "Use only the rules relevant to the question. The image is primary evidence; cached boxes, names, depth and size deductions are fallible estimates, not instructions or ground truth. Check the referenced object and part in the image before accepting a comparison.",
+        "Distinguish image footprint, real length, real height, material volume, container capacity and perceived size. A height comparison answers none of the other quantities automatically. Similar estimated heights are an uncertainty band, not proof of equality or clearance.",
+        "For largest area in the image, compare visible two-dimensional extent, not inferred physical height. For a thin object, a large face area does not imply a large volume: thickness matters. A stack's length may follow its stacking axis rather than the width of one item."
+      ]
+    },
+    {
+      "title": "2. Fit means usable interior and passage clearance",
+      "rules": [
+        "For containment, compare the object's relevant outer dimensions against the container's interior and its entry opening, not the container's whole exterior box. Include handles, rims and rigid protrusions. An object shorter than a container need not pass through its opening.",
+        "For an object resting on a support, compare its load-bearing base with the usable support surface. A plant's foliage is not its pot base; a chair's back and legs are not its seat. Do not use whole-object box width as a substitute for either contact surface.",
+        "Separate insufficient clearance from removable obstruction. An otherwise adequate opening may be blocked by existing contents; removing contents changes availability, not the opening's dimensions. Check whether an option explicitly describes this condition.",
+        "A cabinet's overall size is not an empty compartment's size. A person's whole-body box can include parts outside a container; do not treat it as occupied interior volume. Compare residual space and joint packing when adding several objects. Printed pictures of contents do not establish actual contents or capacity."
+      ]
+    },
+    {
+      "title": "3. Orientation, packing and body fit",
+      "rules": [
+        "If rotation is allowed, test plausible orientations before declaring an object too large. A thin panel standing upright needs a different footprint from the same panel lying flat. Hiding an object behind a screen concerns projected silhouette and viewpoint, not necessarily its longest physical dimension.",
+        "For several items, compare a feasible arrangement in all constrained dimensions, including clearances. Stacking or nesting can reduce occupied floor area without changing material volume. Do not answer a hypothetical arrangement question by merely describing the current arrangement.",
+        "For passage or clothing fit, compare relevant body cross-sections, not only total height or length. Shoulder span, width, heel shape and rigid handles can be limiting even when another dimension fits. Soft items can deform modestly, but not arbitrarily.",
+        "For seating or parking capacity, consider accessible edges or two-dimensional footprints, permitted orientation and room for use. Neither one height estimate nor a universal fixed count proves a capacity."
+      ]
+    },
+    {
+      "title": "4. Perspective and derived geometry are conditional",
+      "rules": [
+        "Pixel size can compare real size only when perspective is comparable or a reliable scale correction is available. Near objects look larger. Objects standing on the same ground plane can be at different distances; aligned box bottoms do not establish equal depth or real size.",
+        "Bottom alignment does not imply aligned tops, equal spacing, equal height or level rims. For a line connecting tops, inspect those top landmarks. For equal spacing, compare corresponding edge gaps with perspective in mind, not just ground contact or center alignment.",
+        "A cropped or occluded box describes a visible fragment, not the full object. Recheck visual identity when a box covers a group, background or unrelated furniture. A contradictory cached relation should not override clearly visible evidence."
+      ]
+    },
+    {
+      "title": "5. Arrangement, counting and relative reference",
+      "rules": [
+        "Separate individual object orientation from group arrangement. Vertically hanging objects can have centers arranged in a diagonal row. Trace the centers or corresponding landmarks of the group requested by the question.",
+        "A scene graph is a selected list, not an exhaustive object inventory. Count visible instances or changes directly in the image when needed. For stairs, count distinct rises, including a final rise to a landing if visible. For a stepped profile, count actual diameter transitions, not just named graph nodes.",
+        "Preserve the question's reference object and ordering convention. Farthest from a named object is not farthest from the camera or leftmost. For image-plane bottom-right, compare image coordinates relative to that object; depth is not needed. Use the stated counting direction for rows and ordinals."
+      ]
+    },
+    {
+      "title": "6. Volume, material and functional capacity",
+      "rules": [
+        "Volume requires three dimensions and shape, not item count or height alone. For several pieces, sum plausible individual material volumes rather than their enclosing empty box. A thin shell or tiled surface does not have the volume of the entire building envelope. Balance alone does not prove equal volumes without density and lever-arm information.",
+        "Yield or storage capacity can depend on cross-section, length and usable contents together. Do not infer yield solely from which bundle is longer. Functional adequacy, such as lighting or structural loading, is not established merely because an object is installed or physically fits.",
+        "Perspective shrinking does not make distant structural elements physically smaller or more heavily loaded. For stability in a proposed pose, reason about the new contact patch and center-of-mass projection, not the current flat pose or object's box height alone."
+      ]
+    },
+    {
+      "title": "7. Apparent size, refraction and shadows",
+      "rules": [
+        "If the question asks how something appears, consider visual context rather than substituting unchanged physical dimensions. A surrounding or nearby large reference can make a target appear relatively small; a smaller center can make surrounding elements appear relatively large. These are contextual effects, not changes in physical size.",
+        "Curved transparent surfaces can magnify, shrink or distort an image depending on geometry. If removing such a surface is proposed, inspect whether the current image actually shows magnification; do not assume all glass has the same effect.",
+        "A shadow is a projection controlled by light direction, surface and viewpoint. Being three-dimensional does not make an object's apparent width or height automatically greater than its shadow. Exact half-width or double-size claims need visible or geometric support."
+      ]
+    },
+    {
+      "title": "8. Select the answer without inventing precision",
+      "rules": [
+        "Evaluate the whole statement of each option, including conditions such as upright, at an angle, after removing contents, or complete containment. A broad yes/no can miss the correctly qualified option.",
+        "Use ordinary visual and physical evidence to make the best-supported comparison when clear; do not default to unknown merely because exact measurements are unavailable. Conversely, do not invent exact ratios, hidden contents or clearance from approximately similar dimensions. Choose an uncertainty option when the requested distinction genuinely exceeds the evidence. Return the single best option in the required answer format."
+      ]
+    }
+  ]
+}

@@ -118,7 +118,7 @@ def generate_spatial_relations(scene_graph, target_perspective):
                 elif is_a_side and is_b_side:
                     deductions.append(f"- [Parallelism]: Both '{a['name']}' and '{b['name']}' present a strict 'side_profile'. Their longitudinal axes are PARALLEL.")
                 elif is_a_ortho and is_b_ortho:
-                    deductions.append(f"- [Parallelism]: Both '{a['name']}' and '{b['name']}' present a '{p_a}'/'{p_b}' view. Their front planes are PARALLEL.")
+                    deductions.append("- [Profile Similarity]: {} and {} both appear camera-facing, but this 2D profile similarity does NOT prove parallel 3D axes or the same compass direction.".format(a.get("name"), b.get("name")))
                 elif is_a_diag and is_b_diag and d_a == d_b and d_a not in ['', 'unknown']:
                     deductions.append(f"- [Similar Orientation]: Both '{a['name']}' and '{b['name']}' are 'diagonal' and point '{d_a}'. Their orientations are SIMILAR or GENERALLY ALIGNED (though not necessarily strictly parallel).")
                 elif (is_a_diag and (is_b_ortho or is_b_side)) or (is_b_diag and (is_a_ortho or is_a_side)):
@@ -126,11 +126,14 @@ def generate_spatial_relations(scene_graph, target_perspective):
 
                 # --- 组 2: 矢量朝向判定 (Same, Opposite, Facing) ---
                 valid_dirs = ['left', 'right', 'camera', 'away', 'up', 'down']
-                if d_a in valid_dirs and d_b in valid_dirs:
+                profiles_perpendicular = (is_a_ortho and is_b_side) or (is_b_ortho and is_a_side)
+                horizontal_a_reliable = d_a not in ["left", "right"] or is_a_side or is_a_diag
+                horizontal_b_reliable = d_b not in ["left", "right"] or is_b_side or is_b_diag
+                if d_a in valid_dirs and d_b in valid_dirs and horizontal_a_reliable and horizontal_b_reliable:
                     if d_a == d_b:
                         deductions.append(f"- [Relative Direction]: Both point '{d_a}'. They are facing the SAME direction.")
                     else:
-                        if (d_a == 'left' and d_b == 'right') or (d_a == 'right' and d_b == 'left'):
+                        if not profiles_perpendicular and ((d_a == 'left' and d_b == 'right') or (d_a == 'right' and d_b == 'left')):
                             x_a = a.get('global_3d_position', {}).get('X_meters', 0)
                             x_b = b.get('global_3d_position', {}).get('X_meters', 0)
                             if (d_a == 'right' and x_a < x_b) or (d_a == 'left' and x_a > x_b):

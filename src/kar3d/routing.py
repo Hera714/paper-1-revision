@@ -49,6 +49,8 @@ Available routes are defined by their computational capability:
 2. line1_base
    Use object anchor points plus monocular depth and camera-centered 3D
    coordinates when basic position, depth, distance, or scene layout is enough.
+   Questions about image-plane left/right/above/below/top/bottom/corners belong
+   here; those words do not by themselves imply 3D depth or orientation.
 
 3. line2_orientation
    Use pose-aware extraction and symbolic geometric reasoning when the answer
@@ -58,6 +60,26 @@ Available routes are defined by their computational capability:
 4. line3_bbox
    Use bounding boxes and metric extent reasoning when the answer depends on
    physical size, width/height, visual alignment, overlap, coverage, or fit.
+
+Selection cautions:
+- Choose line3_bbox only when box extent is genuinely needed, normally for a
+  small set of distinct objects. Do not choose it merely because many repeated
+  objects form a row or must be counted.
+- Explicit height/extreme-point questions such as tallest, shortest, highest,
+  or lowest do require line3_bbox, even when the question mentions a line.
+- For counting or long repeated sequences, prefer line0_pure_vlm unless basic
+  anchor/depth evidence is explicitly needed.
+- A distance question naming a landmark or reference object needs that reference
+  extracted; normally choose line1_base unless orientation or box extent is the
+  deciding evidence.
+- Choose line2_orientation only when facing, rotation, viewpoint, angle, or an
+  object-centered reference frame changes the answer.
+- Visible wind direction inferred from smoke, flags, fabric, or vegetation is a
+  global visual-semantic cue; use line0_pure_vlm unless an object's own pose is
+  explicitly the reference frame.
+- A generic question asking how objects are positioned uses line1_base. Do not
+  use line3_bbox unless it explicitly asks about size, extent, alignment,
+  overlap, coverage, fit, tallest/highest, or shortest/lowest.
 
 Judge only from the question text. Return one JSON object and no other text:
 {"route":"one valid route", "confidence":0.0, "reason":"short reason"}

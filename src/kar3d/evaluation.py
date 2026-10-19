@@ -7,13 +7,59 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, List
 
 
+def split_thinking_and_answer(response: str) -> tuple[str, str]:
+    """Keep the model's visible thinking separate from its final answer text."""
+    if not response:
+        return "", ""
+    if "</think>" not in response:
+        return "", response.strip()
+    before, answer = response.rsplit("</think>", 1)
+    thinking = before.rsplit("<think>", 1)[-1]
+    return thinking.strip(), answer.strip()
+
+
 def extract_answer(response: str) -> str:
     if not response:
         return "Unknown"
-    tagged = re.search(r"<answer>\s*([1-4])\s*</answer>", response)
+    tagged = re.findall(r"<answer>\s*([1-4])\s*</answer>", response, flags=re.IGNORECASE)
     if tagged:
-        return tagged.group(1)
+        return tagged[-1]
+
+    # Ovis may emit the final choice as a bare number after its thinking block.
+    # Only inspect the answer portion so numbers used in reasoning are ignored.
+    _, answer_text = split_thinking_and_answer(response)
+    if answer_text.startswith("<think>"):
+        return "Unknown"
+    explicit = re.search(
+        r"(?:final\s+)?(?:the\s+)?answer\s*"
+        r"(?:\(\s*1\s*[-–—]\s*4\s*\))?\s*"
+        r"(?:is|[:：])\s*(?:option\s*)?([1-4])(?=\D|$)",
+        answer_text,
+        flags=re.IGNORECASE,
+    )
+    if explicit:
+        return explicit.group(1)
+
+    answer = re.match(r"^\s*(?:option\s*)?([1-4])(?=\D|$)", answer_text, flags=re.IGNORECASE)
+    if answer:
+        return answer.group(1)
     return "Unknown"
+
+
+def parse_first_json_object(text: str) -> tuple[Dict[str, Any], str]:
+    """Decode the first top-level JSON object and preserve any trailing text.
+
+    ``json.JSONDecoder.raw_decode`` stops after one complete object, unlike a
+    greedy regular expression which can accidentally join two JSON objects.
+    """
+    raw = (text or "").strip()
+    start = raw.find("{")
+    if start < 0:
+        raise ValueError("No JSON object found.")
+    parsed, end = json.JSONDecoder().raw_decode(raw[start:])
+    if not isinstance(parsed, dict):
+        raise ValueError("The first JSON value is not an object.")
+    return parsed, raw[start + end :].strip()
 
 
 def append_jsonl(path: Path, record: Dict[str, Any]) -> None:

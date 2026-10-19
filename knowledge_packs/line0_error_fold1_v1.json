@@ -1,0 +1,44 @@
+{
+  "version": "line0_error_fold1_v1",
+  "route": "line0_pure_vlm",
+  "sections": [
+    {
+      "title": "Bind the question to the visible target",
+      "rules": [
+        "Identify the requested target, reference object and property before reasoning. A hypothetical observer, camera, aircraft or viewing location specifies the viewpoint; it does not replace the pictured subject. For a top-down view, infer the subject's ground footprint, not its frontal silhouette or the observer's shape. Use base edges, support corners and ridge or apex geometry; do not assume every triangular frontal view has a triangular footprint.",
+        "Answer every requested part. If the question asks for a reason, a bare outcome is less complete than an evidence-supported explanation. Compare whole option meanings rather than isolated words.",
+        "Use observable identity and geometry before generic stereotypes: a transparent or glazed surface can have stronger visible highlights than a metal utensil. Judge the pictured reflection, not which material is usually shinier. Do not invent an unseen object simply because it is listed as an option.",
+        "A left-side hand in the picture is not necessarily the person's left hand. Determine anatomical side from thumb position, palm or back-of-hand orientation, and forearm continuity. Image position alone cannot establish handedness."
+      ]
+    },
+    {
+      "title": "Support, removal and physical consequences",
+      "rules": [
+        "Trace contact support from the ground upward. Removing an object above a balanced stack removes a load; it does not automatically remove support for objects below it. Removing a load-bearing object below another may cause falling or settling, depending on remaining support.",
+        "For objects resting on a table or shelf, disturbance elsewhere changes their state only through a plausible physical coupling: direct contact, motion of their support, or an actual force reaching them. Do not invent violent splashes, collisions or falling simply from the word disturbed.",
+        "Separate immediate instability from speculative damage. A top-heavy object or irregular stack can tip when its center of mass moves beyond its support region. Damage, breaking, rolling off a road, or submerging requires additional conditions. An upright broad-based cone must first tip or slide; it is not a freely rolling ball.",
+        "In equilibrium the net force is zero: support balances weight. In free fall without significant drag, objects have the same gravitational acceleration. In ordinary air, broad lightweight objects may be slowed more by drag than compact dense objects; do not assume a vacuum unless the question says so. Do not replace these conditional laws with always-heavier-falls-faster or always-equal-speed rules."
+      ]
+    },
+    {
+      "title": "Occlusion, reflection and visible evidence",
+      "rules": [
+        "Distinguish a reflection on a surface from objects transmitted through it, shadows cast onto it, and printed patterns. Glass can show both transmitted interior contents and a reflected exterior scene simultaneously. Inspect the specified pane or lens rather than report the most obvious objects behind the glass.",
+        "A specular highlight or reflected light source is evidence of reflection even if no complete object image is recognizable. Conversely, a dark patch alone is not a reflected object. Count only distinguishable reflected instances; ripples or fragments do not automatically create extra reflected objects.",
+        "A sheer curtain transmits light and may appear blue-grey because of illumination or background. Distinguish material transparency and diffuse transmission from an opaque surface's pigment. Refracting water and curved glass can magnify or shift outlines; assess the actual appearance rather than assume every interface makes an object broken.",
+        "For partial occlusion, look for interrupted contours, overlapping boundaries and exposed fragments of the rear object. For complete visibility, check the whole visible outline and frame boundaries, not just the salient central surface. Opaque containers hide the object behind them; seeing a protruding object inside a container is a different relation.",
+        "Infer shadow sources using their attached stem, mounting geometry and setting as well as silhouette. Connected parts of one mounted object are not automatically separate objects. A curved or sagging arrangement need not cast a straight shadow just because its elements form a row. Dense foliage can have directly lit outer leaves and shaded interiors at the same time."
+      ]
+    },
+    {
+      "title": "Counting and following a route",
+      "rules": [
+        "Count with a finite spatial inventory: sweep each shelf, lane or depth row once, list each distinct instance and sum subtotals. Include partly occluded objects when a separate instance has visible evidence; do not duplicate one object across regions, count supports as contents, or add an extra item absent from the list. Verify that the final number equals the actual inventory length.",
+        "Separate a counted quantity from its option index. After computing the quantity, match it to the option text once and output that option's index. Avoid repeated guessing or changing a count without new visible evidence.",
+        "For behind the frontmost or after the last object, first bind the stated reference and sequence direction. Exclude the reference itself and count eligible objects on the requested side. Count successive transfers along rings or obstacles as transitions, not automatically as the number of intermediate objects.",
+        "Trace a visible path from the specified start through its turns and connectors. Parallel lanes may connect in a return loop; do not assume the rightmost lane is always the finish. A path to a barrier can be clear up to the barrier even when passage beyond it is blocked. A destination visible near a road is not proof that the road reaches it; if its continuation is unseen, do not invent a destination.",
+        "Use visible perspective and scale cues without universal size assumptions. Similar-looking objects need not have identical physical sizes. A broad canopy need not imply a thick trunk or imminent collapse. A small backdrop within a larger visible room does not necessarily make the entire room smaller."
+      ]
+    }
+  ]
+}
